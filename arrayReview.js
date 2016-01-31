@@ -67,12 +67,12 @@ finder();
 var first = [1,2,3,4,5];
 var second = [];
 
-function addNums(one, two) {
-    for(var i = 0; i < one.length; i++) {
-        two.push(one[i]);
+function addNums(arr1, arr2) {
+    for(var i = 0; i < arr1.length; i++) {
+        arr2.push(arr1[i]);
     }  
-      two.push(6, 7);
-      return two;
+      arr2.push(6, 7);
+      return arr2;
     }
    addNums(first, second); 
 
@@ -87,9 +87,23 @@ console.log(second) //[1,2,3,4,5,6,7];
 
 
 //write a function called longest that takes in our sentence variable, and returns the longest word in that sentence.
-var sentence = "Dev Mountain is the best"
+var sentence = "Dev Mountain is the best";
 
-  //code here
+ function longest(str) {
+     var splitString = str.split(" ");
+     var longest = 0;
+     var longWord;
+     
+     for(var i = 0; i < splitString.length; i++) {
+         if(longest < splitString[i].length) {
+             longest = splitString[i].length;
+             longWord = splitString[i];
+         }
+    }
+        return longWord;
+ }
+
+longest(sentence);
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -100,7 +114,12 @@ var sentence = "Dev Mountain is the best"
 var myPoem = 'What is a jQuery but a misunderstood object?'
 //What is a jQuery but a misunderstood object? --> What Is A JQuery But A Misunderstood Object?
 
-  //code here
+function capitalize(str) {
+    return str.replace(/\w\S*/g, function(txt) {
+   return txt.charAt(0).toUpperCase() + txt.slice(1);
+    })
+}
+capitalize(myPoem);
 
 
 
@@ -109,4 +128,17 @@ var myPoem = 'What is a jQuery but a misunderstood object?'
 
 
 var theOdyssey = "function expression or function declaration? Tis an obvious choice";
-//Write a function called vowelCounter that takes in a string (theOdyssey) and returns how many vowels are in that string.
+//Write a function called vowelCounter that takes in a string (theOdyssey) and returns how many vowels are in 
+//that string.
+
+function vowelCounter(string) {
+    var vowelCount = 0;
+    var string = string.toString();
+    for(var i = 0; i < string.length; i++) {
+        if(string.charAt(i) === 'a' || string.charAt(i) === 'e' || string.charAt(i) === 'i' || string.charAt(i) === 'o' || string.charAt(i) === 'u') {
+            vowelCount += 1;
+        }
+    }
+    return vowelCount;
+}
+vowelCounter(theOdyssey);
